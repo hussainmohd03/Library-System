@@ -1,0 +1,36 @@
+{% extends "base.html" %} 
+{% block content %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+<main class="mb-4 mt-5">
+  <div class="container ">
+    <div class="row ">
+
+      <!-- TODO: Use Message Flashing to display feedback to the user with a <p> -->
+
+        {% if not current_user.is_authenticated: %}
+        
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h1>Login</h1>
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          {% for message in messages %}
+          <p style="color: red;">{{message}}</p>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+
+
+          {{ render_form(form) }}
+          
+        
+      
+
+  {% else %}
+  <center><p> (You are already logged in) </p></center>
+  {% endif %}
+</div>
+  </div>
+</div>
+</main>
+{% endblock %}
