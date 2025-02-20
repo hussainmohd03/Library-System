@@ -13,21 +13,18 @@ library_system
 │   ├── models.py
 │   ├── routes.py
 │   └── utils.py
-├── migrations
-│   └── ...
 ├── templates
+│   ├──admid
+│      └── admin.html
 │   ├── index.html
 │   ├── all_books.html
 │   ├── book.html
 │   ├── register.html
 │   ├── login.html
 │   ├── return.html
-│   └── admin.html
+
 ├── static
-│   ├── css
-│   ├── js
-│   └── ...
-├── config.py
+│   ├──images
 ├── run.py
 └── README.md
 ```
