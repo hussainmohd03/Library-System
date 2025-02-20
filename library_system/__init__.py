@@ -3,11 +3,16 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap5
 from flask import redirect, url_for
+from dotenv import load_dotenv
+import os
 
+load_dotenv()  # Load environment variables from .env file
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "6:3886&T£;Toz=c|m]@ku`j1>*"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Library.db'
+
+app = Flask(__name__)
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
