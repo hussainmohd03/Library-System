@@ -54,13 +54,6 @@ library_system
    pip install -r requirements.txt
    ```
 
-4. Set up the database:
-   ```
-   flask db init
-   flask db migrate
-   flask db upgrade
-   ```
-
 ## Running the Application
 
 To run the application, execute the following command:
