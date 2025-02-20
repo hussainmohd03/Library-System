@@ -15,7 +15,7 @@ library_system
 │   └── utils.py
 ├── templates
 │   ├──admid
-│      └── admin.html
+│      └── index.html
 │   ├── index.html
 │   ├── all_books.html
 │   ├── book.html
