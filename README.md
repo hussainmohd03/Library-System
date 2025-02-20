@@ -69,6 +69,3 @@ The application will be available at `http://127.0.0.1:5000`.
 - Use the navigation to register, log in, and manage your borrowed books.
 - Admin users can access the admin panel to manage users and books.
 
-## License
-
-This project is licensed under the MIT License.
