@@ -22,7 +22,6 @@ library_system
 │   ├── register.html
 │   ├── login.html
 │   ├── return.html
-
 ├── static
 │   ├──images
 ├── run.py
