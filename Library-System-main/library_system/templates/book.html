@@ -1,0 +1,33 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+    <div class="container ">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <h5 style="color: red;" class="d-flex justify-content-center align-items-center mt-5">{{message}}</h5>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      <div class="row pt-lg-5 mt-lg-5  ">
+        <div class="Book_img col-lg-3 col-md-12 me-5 " >
+          <img src="{{book.img_url}}" alt="" style="height: 500px;" />
+        </div>
+  
+        <div class="card py-3 col-lg-8 col-md-12 ms-lg-5">
+          <h3 dir="auto">{{book.title}}</h3>
+          <small><span> <em>Author</em>: {{book.author}}   ||   <em>Language</em>: {{book.language}}   ||   {% if not book.ebook_location: %}<em>Copies:</em>{{book.total_copies}}  || {% endif %}   <em>Location:</em> {{book.location}}    ||   <em>Genre:</em> {{book.genre}}</span></small>
+          <hr />
+          <p style="text-align: justify;" dir="auto">
+            {{book.description}}
+          </p>
+          {% if not book.location == 'E-Book' or book.location == 'EBook' or book.location == 'e-Book' or book.location == 'eBook' or book.location == 'ebook': %}
+          <a href="{{url_for('borrow', bookID=book.id)}}" class="btn btn-primary">Borrow</a>
+          {% else %}
+          <a href="{{ url_for('download', filename=book.ebook_location) }}" class="btn btn-primary" target="_blank">Download E-Book</a>
+          {% endif %} 
+        </div>
+      </div>
+    </div>
+{% endblock  %}

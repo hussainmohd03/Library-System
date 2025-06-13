@@ -1,0 +1,28 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+
+<h1>Admin Dashboard</h1>
+
+<br />
+
+<h3>Note:</h3>
+
+<ul>
+<li>If you have books in multiple locations you can use the location field to specify the location of the books</li>
+<br />
+<li>To add an EBook, type "E-Book" in the location Field, Enter the filename in the E-Book location field (example.pdf), and add the file in the server in the following location 'static/files/'</li>
+<br />
+<li>To add a cover image for a book, you can either:</li>
+<ul>
+<li>1. Upload the image to the server in the 'static/images/' directory and provide the relative path in the cover image field (e.g., '../static/images/books/example.png').</li>
+<li>2. Use an external image URL and provide the full URL in the cover image field.</li>
+</ul>
+<br />
+
+</ul>
+
+<br />
+
+<a href="{{url_for('home')}}">Return To Home Page</a>
+{% endblock %}

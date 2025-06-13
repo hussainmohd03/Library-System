@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+<body>
+  <!-- Navigation Bar Section -->
+  <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand d-md-none" href="#">
+        <svg class="bi" width="24" height="24"><use xlink:href="#aperture"></use></svg>
+        Bookly
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasLabel">Aperture</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body ">
+          <ul class="navbar-nav flex-grow-1 justify-content-center align-items-center gap-lg-5 gap-sm-3">
+            
+            <li class="nav-item"><a class="nav-link" href="{{url_for('home')}}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{url_for('all_books')}}">Books</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{url_for('return_book')}}">Return</a></li>
+            {% if current_user.id == 1: %}
+            <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+            {% endif %}
+            <div class="text-end">
+              {% if not current_user.is_authenticated: %}
+              <a class="btn btn-warning me-2" href="{{url_for('login')}}">Login</a>
+              <a class="btn btn-warning" href="{{url_for('register')}}">Register</a>
+              {% else %}
+              <a class="btn btn-warning" href="{{url_for('logout')}}">Log Out</a>
+              {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+<!-- End of Navigation Bar Section -->
+
+
+{% block content %} {% endblock %}
+
+  
+     <!-- Footer Section  -->
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      </footer>
+      <!-- End of Footer Section -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html>

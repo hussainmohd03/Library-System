@@ -1,0 +1,56 @@
+{% extends "base.html" %} 
+{% block content %}
+
+     <main>
+
+  <!-- Hero Section -->
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Book Collection</h1>
+        <p class="lead text-body-secondary">Welcome to our library collection. Each book here has been carefully selected and cherished. Whether you're looking for timeless wisdom or modern insights, we hope you find something that resonates with you. </p>
+        <p>
+
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- End of Hero Section -->
+
+
+  <!-- Books Container -->
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+     
+      <!-- Search Area  -->
+      <form class="col-12 col-lg-auto mb-5 focus-ring rounded-3"  action="{{ url_for('all_books') }}" method="POST">
+        <input type="search" class="form-control form-control-dark text-bg-light border-dark border-opacity-50" placeholder="Search..." aria-label="Search" name="search">
+      </form>
+      <!-- End of Search Area -->
+
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 align-items-center justify-content-center gap-4">
+        
+        {% if books %}
+        {% for book in books %}
+        <div class="card" style="width: 18rem;">
+          <a href="{{url_for('display_book', bookID=book.id)}}" class="btn btn-light">
+          <img src="{{book.img_url}}" class="card-img-top" alt="..." loading="lazy">
+          
+            
+            </a>       
+        </div>
+        {% endfor %}
+        {% else %}
+      <center><p> No books available </p></center>
+        {% endif %}
+        
+
+
+      </div>
+    </div>
+  </div>
+  <!-- End of Books Container -->
+</main>
+
+{% endblock %}
