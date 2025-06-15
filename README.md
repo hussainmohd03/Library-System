@@ -58,7 +58,7 @@ Library-System-main/
 
 1. **Clone the repository:**
    ```sh
-   git clone <repository-url>
+   git clone https://github.com/hussainmohd03/Library-System
    cd Library-System-main
    ```
 
